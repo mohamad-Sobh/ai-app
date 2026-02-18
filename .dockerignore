@@ -1,0 +1,40 @@
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Testing
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Documentation
+README.md
+*.md
+
+# Environment
+.env
+.env.local
+venv/
+env/
+ENV/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml

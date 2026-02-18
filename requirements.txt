@@ -1,0 +1,3 @@
+# Minimal baseline for local runs
+uvicorn>=0.30
+

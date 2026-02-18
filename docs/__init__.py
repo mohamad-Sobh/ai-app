@@ -1,0 +1,3 @@
+"""
+    Place all documentation files in this directory. This can include markdown files, reStructuredText files, or any other format you choose for your documentation. You can organize the documentation into subdirectories if needed, such as 'guides', 'api', 'tutorials', etc. The documentation can be generated using tools like Sphinx, MkDocs, or any other static site generator that supports your chosen format.
+"""
