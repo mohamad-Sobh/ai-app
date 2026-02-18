@@ -24,4 +24,4 @@ def create_agent(manager: CustomManager) -> MyAgent:
 
 def get_additional_routers() -> List[object]:
     """Return a list of additional FastAPI routers to include in the app."""
-    return [demo_router]
+    return [demo_router.router]

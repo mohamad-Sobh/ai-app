@@ -51,7 +51,7 @@ ARG PAT_TOKEN
 
 # Install g-agent-ai-core-backend
 RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install "git+https://${PAT_TOKEN}@github.com/Ghaia-ai/g-agent-ai-core-backend.git@v2.3.14"
+    pip install "git+https://${PAT_TOKEN}@github.com/Ghaia-ai/g-agent-ai-core-backend.git@v2.3.18"
 
 # Copy and install requirements BEFORE copying app code
 # This creates a separate cached layer for dependencies

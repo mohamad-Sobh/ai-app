@@ -21,21 +21,58 @@ A starter structure for building AI backends with a clean, scalable layout. ✨
 - `tests/` — Automated tests.
 
 ## Local setup ⚙️
-1) Create and activate a virtual environment.
-2) Install dependencies.
-3) Run the app.
+
+### Prerequisites
+- **Python 3.12+** (required by `gagent-core` dependencies; the Dockerfile uses 3.12)
+- A GitHub **Personal Access Token (PAT)** with access to the private `g-agent-ai-core-backend` repo
+
+### Steps
+1) Create and activate a virtual environment **with Python 3.12**:
 
 ```bash
-python -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
+```
+
+2) Upgrade build tools and install pre-requisites (matches the Dockerfile):
+
+```bash
+pip install --upgrade pip setuptools wheel
+pip install Cython av==12.3.0
+```
+
+3) Install the private `gagent-core` package (replace `<PAT_TOKEN>` with your GitHub PAT):
+
+```bash
+pip install "git+https://<PAT_TOKEN>@github.com/Ghaia-ai/g-agent-ai-core-backend.git@v2.3.18"
+```
+
+4) Install project dependencies:
+
+```bash
 pip install -r requirements.txt
+```
+
+5) Configure environment variables:
+
+```bash
+cp .env.example .env
+# Edit .env and fill in values — ensure all values are properly quoted
+```
+
+6) Export environment variables and run the app:
+
+```bash
+export $(grep -v '^#' .env | grep -v '^\s*$' | xargs)
 python -m app.main
 ```
 
-Notes:
-- Copy `.env.example` to `.env` and adjust values as needed.
-- `requirements.txt` includes a minimal baseline; add your dependencies as you build.
-- The default server runs on `0.0.0.0:8000` and can be configured via env vars.
+The server starts at `http://0.0.0.0:8000` by default.
+
+### Common issues
+- **Python version**: `gagent-core` requires Python ≥ 3.10. Using 3.9 or lower will fail with dependency resolution errors.
+- **`.env` parsing**: Make sure all values with special characters (URLs, connection strings) are wrapped in double quotes. Avoid URL-encoded characters like `%22` inside values.
+- **Env vars not loaded**: Some `gagent-core` settings classes don't read `.env` directly — you must export the variables to the shell environment before running.
 
 ## Configuration 🔧
 Environment variables used by the app:
